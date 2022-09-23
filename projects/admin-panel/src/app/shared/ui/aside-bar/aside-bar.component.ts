@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AppRouterObj } from '../../common/router.constant';
 
 @Component({
   selector: 'app-aside-bar',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AsideBarComponent implements OnInit {
 
-  constructor() { }
+  public nevigationList = AppRouterObj
+
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  routeIsActive(routePath: string) {
+    return this.router.url == routePath;
   }
 
 }
