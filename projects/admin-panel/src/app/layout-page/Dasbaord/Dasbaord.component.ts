@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-Dasbaord',
-  templateUrl: './Dasbaord.component.html',
-  styleUrls: ['./Dasbaord.component.css']
+  selector: 'app-dasbaord',
+  templateUrl: './dasbaord.component.html',
+  styleUrls: ['./dasbaord.component.css']
 })
 export class DasbaordComponent implements OnInit {
 

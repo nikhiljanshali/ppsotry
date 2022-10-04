@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AppRouterObj } from '../../common/router.constant';
+import { AppRouterObj } from '../../const/router.constant';
+// import { AppRouterObj } from '../../const/router.constant';
 
 @Component({
   selector: 'app-aside-bar',

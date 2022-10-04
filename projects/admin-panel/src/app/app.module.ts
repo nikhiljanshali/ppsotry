@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FooterComponent, HeaderComponent } from './shared';
+import { FooterComponent, HeaderComponent } from './shared/ui';
 import { AsideBarComponent } from './shared/ui/aside-bar/aside-bar.component';
 import { BreadcrumbsComponent } from './shared/ui/breadcrumbs/breadcrumbs.component';
 

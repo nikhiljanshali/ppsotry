@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { LayoutPageRoutingModule } from './layout-page-routing.module';
 import { LayoutPageComponent } from '../layout-page/layout-page.component';
-import { DasbaordComponent } from './Dasbaord/Dasbaord.component';
+import { DasbaordComponent } from './dasbaord/dasbaord.component';
 
 
 @NgModule({
