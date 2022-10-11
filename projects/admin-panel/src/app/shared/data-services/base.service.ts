@@ -1,16 +1,24 @@
-
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AppinitService } from 'projects/admin-panel/src/core/services';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class BaseService<T> {
 
   constructor(
-    private httpClient: HttpClient, private url: String, private endpoint: String
-  ) { }
+    private httpClient: HttpClient,
+    private url: String,
+    private endpoint: String,
+    private appinitService: AppinitService
+  ) {
+    this.appinitService.config$.subscribe((value) => {
+      console.log(value);
+    })
+  }
 
   AuthorizationHeader() {
     const headers = new HttpHeaders();

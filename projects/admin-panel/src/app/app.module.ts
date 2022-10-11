@@ -1,13 +1,23 @@
-import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AppinitService } from '../core/services/appinit.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { initialAppSetup } from './app.initializer';
 import { FooterComponent, HeaderComponent } from './shared/ui';
 import { AsideBarComponent } from './shared/ui/aside-bar/aside-bar.component';
 import { BreadcrumbsComponent } from './shared/ui/breadcrumbs/breadcrumbs.component';
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    CommonModule,
+    HttpClientModule,
+    AppRoutingModule,
+  ],
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -15,11 +25,15 @@ import { BreadcrumbsComponent } from './shared/ui/breadcrumbs/breadcrumbs.compon
     BreadcrumbsComponent,
     FooterComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
+  providers: [
+    AppinitService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initialAppSetup,
+      deps: [AppinitService],
+      multi: true
+    }
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 

@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs';
+import { AppinitService } from 'projects/admin-panel/src/core/services';
 import { map } from 'rxjs/operators'
 
 @Injectable({
@@ -9,9 +9,16 @@ import { map } from 'rxjs/operators'
 
 export class ApiCommunicatorService {
 
+  private urlStartPoint: string = '';
+
   constructor(
-    private http: HttpClient
-  ) { }
+    private http: HttpClient,
+    private appinitService: AppinitService,
+  ) {
+    this.appinitService.config$.subscribe((value) => {
+      this.urlStartPoint = value.API.apiRoot;
+    })
+  }
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -20,29 +27,29 @@ export class ApiCommunicatorService {
   };
 
 
-  Get(uri: string, params: any) {
-    return this.http.get(`${uri}/${params}`, this.httpOptions).pipe(map((response: any) => { return response }));
+  Get(params?: any) {
+    return this.http.get(`${this.urlStartPoint}/${params}`, this.httpOptions).pipe(map((response: any) => { return response }));
     // return this.http.get(`${uri}/${params}`, this.httpOptions).map((response: T) => {
     //   return response;
     // }).catch(this.handleError);
   }
 
-  Post(uri: string, params: any, isReturn: boolean = false) {
-    return this.http.post(uri, params, this.httpOptions).pipe(map((response: any) => { return response }));
+  Post(params?: any, isReturn: boolean = false) {
+    return this.http.post(this.urlStartPoint, params, this.httpOptions).pipe(map((response: any) => { return response }));
     // return this.http.post(uri, params, this.httpOptions).map((response: T) => {
     //   return response;
     // }).catch(this.handleError);
   }
 
-  Put(uri: string, params: any, isReturn: boolean = false) {
-    return this.http.put(uri, params, this.httpOptions).pipe(map((response: any) => { return response }));
+  Put(uri?: string, params?: any, isReturn: boolean = false) {
+    return this.http.put(this.urlStartPoint, params, this.httpOptions).pipe(map((response: any) => { return response }));
     // return this.http.put(uri, params, this.httpOptions).map((response: T) => {
     //   return response;
     // }).catch(this.handleError);
   }
 
-  Delete(uri: string, params: any, isReturn: boolean = false) {
-    return this.http.delete(uri, params).pipe(map((response: any) => { return response }));
+  Delete(uri?: string, params?: any, isReturn: boolean = false) {
+    return this.http.delete(this.urlStartPoint, params).pipe(map((response: any) => { return response }));
     // return this.http.delete(`${uri}/${params}`, this.httpOptions).map((response: T) => {
     //   return response;
     // }).catch(this.handleError);
