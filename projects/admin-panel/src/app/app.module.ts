@@ -1,7 +1,7 @@
-import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppinitService } from '../core/services/appinit.service';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,7 +14,7 @@ import { BreadcrumbsComponent } from './shared/ui/breadcrumbs/breadcrumbs.compon
 @NgModule({
   imports: [
     BrowserModule,
-    CommonModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
   ],
@@ -34,7 +34,7 @@ import { BreadcrumbsComponent } from './shared/ui/breadcrumbs/breadcrumbs.compon
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 
 export class AppModule { }

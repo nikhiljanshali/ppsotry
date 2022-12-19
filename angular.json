@@ -223,8 +223,10 @@
               "projects/admin-panel/src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/scss/bootstrap.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "node_modules/ngx-toastr/toastr.css",
               "projects/admin-panel/src/styles.css"
             ],
             "scripts": [

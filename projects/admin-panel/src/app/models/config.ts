@@ -4,7 +4,7 @@ import { environment } from "../../environments/environment";
 export const Config = {
   isServed: false,
   API: {
-    apiRoot: environment.apiRoot,
+    apiRoot: 'default value',
   },
   MyKey: 'default value',
   ExtraKeys: 'wont harm',

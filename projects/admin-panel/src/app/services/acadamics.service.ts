@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { map, Observable, tap } from 'rxjs';
+import { map, Observable, single, tap } from 'rxjs';
 import { Acadamic } from '../models/business';
 import { ApiCommunicatorService } from '../shared/data-services';
 
@@ -16,8 +16,15 @@ export class AcadamicsService {
 
   public getAllAcadamic(): Observable<Acadamic[]> {
     return this.apiCommunicatorService.Get('acadamic').pipe(tap(single => {
-      this.acadamicResponse.push(single);
-    }), map(() => this.acadamicResponse));
+      this.acadamicResponse = single;
+    }), map((x) => this.acadamicResponse));
+  }
+
+  public saveAcadamic(param: any): Observable<Acadamic[]> {
+    console.log(param);
+    return this.apiCommunicatorService.Post('/acadamic', param, true).pipe(tap(single => {
+      this.acadamicResponse = single;
+    }), map((x)=>this.acadamicResponse));
   }
 
 }

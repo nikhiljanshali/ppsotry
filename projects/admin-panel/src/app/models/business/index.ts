@@ -1,1 +1,1 @@
-export * from './acadamics.modal'
+export * from './acadamics.modal';

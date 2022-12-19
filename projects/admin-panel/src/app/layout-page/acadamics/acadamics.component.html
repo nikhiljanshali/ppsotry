@@ -1,99 +1,202 @@
-<section class="section">
+<!-- ======= Section Box======= -->
+<section class="section dashboard">
   <div class="row">
-    <div class="col-lg-6">
+    <!-- Left side columns -->
+    <div class="col-lg-8">
+      <div class="row">
+        <!-- Recent Sales -->
+        <div class="col-12">
+          <div class="card recent-sales overflow-auto">
+            <div class="card-header">Acadamics List</div>
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">University</th>
+                    <th scope="col">College</th>
+                    <th scope="col">Complete Year</th>
+                    <th scope="col">Percentage</th>
+                    <th scope="col" style="text-align: center;">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <ng-container *ngFor="let item of listofAcadamics; let i = index;">
+                    <tr>
+                      <td scope="row">
+                        <i class="bi bi-info-circle" (click)="readAcadmic(item);"></i>
+                      </td>
+                      <td>{{item.university}}</td>
+                      <td>{{item.college}}</td>
+                      <td>{{item.startMonth}} {{item.startYear}} - {{item.endMonth}} {{item.endYear}}</td>
+                      <td>{{item.percentage}}</td>
+                      <td scope="row">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                          <a class="btn btn-link"><i class="bi bi-pencil-fill"></i>
+                          </a>
+                          <a class="btn btn-link"><i class="bi bi-trash-fill"></i>
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                  </ng-container>
+                </tbody>
+              </table>
 
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Add / Edit Acadamic Details</h5>
-
-          <!-- General Form Elements -->
-          <form>
-
-            <div class="row mb-3">
-              <div class="input-group mb-3">
-                <span class="input-group-text">University</span>
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username">
-              </div>
             </div>
-            <div class="row mb-3">
-              <div class="input-group mb-3">
-                <span class="input-group-text">Link</span>
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username">
-              </div>
-            </div>
-
-            <div class="row mb-3">
-              <div class="input-group mb-3">
-                <span class="input-group-text">College</span>
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username">
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="input-group mb-3">
-                <span class="input-group-text">Start Month</span>
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username">
-                <span class="input-group-text">Year</span>
-                <input type="text" class="form-control" placeholder="Server" aria-label="Server">
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="input-group mb-3">
-                <span class="input-group-text">End Month</span>
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username">
-                <span class="input-group-text">Year</span>
-                <input type="text" class="form-control" placeholder="Server" aria-label="Server">
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Percentage </span>
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                  aria-describedby="basic-addon1">
-                <span class="input-group-text" id="basic-addon1">%</span>
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-sm-10 text-right">
-                <button type="submit" class="btn btn-primary">Save / Update</button>
-              </div>
+            <div class="card-footer">
             </div>
 
-          </form><!-- End General Form Elements -->
+            <div class="filter">
+              <a class="icon" href="javascript:void(0)" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <li class="dropdown-header text-start">
+                  <h6>Menu</h6>
+                </li>
+                <li><a class="dropdown-item" href="javascript:void(0)"><i class="bi bi-plus-lg"></i><span>Add</span></a>
+                </li>
+              </ul>
+            </div>
 
-        </div>
+          </div>
+        </div><!-- End Recent Sales -->
+
       </div>
+    </div><!-- End Left side columns -->
 
-    </div>
 
-    <div class="col-lg-6">
+    <div class="col-lg-4">
+      <div class="row">
+        <!-- Recent Sales -->
+        <div class="col-12">
+          <div class="card recent-sales overflow-auto">
+            <div class="card-header">
+              Acadamics Form
+            </div>
 
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">List of acadamics</h5>
-          <!-- Table with stripped rows -->
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">University</th>
-                <th scope="col">College</th>
-                <th scope="col">Complete Year</th>
-                <th scope="col">Percentage</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let item in listofAcadamics;">
-                <td scope="row">#</td>
-                <td>{{item.university}}</td>
-                <td>{{item.college}}</td>
-                <td>{{item.startMonth}} {{item.startYear}} - {{item.endMonth}} {{item.endYear}}</td>
-                <td>{{item.percentage}}</td>
-              </tr>
-            </tbody>
-          </table>
-          <!-- End Table with stripped rows -->
-        </div>
+
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <form [formGroup]="acadamicFormGroup" novalidate>
+                <div class="row mb-3">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">University</span>
+                    <input type="text" formControlName="university" class="form-control" placeholder="University Name"
+                      aria-label="UniversityName">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">University Website</span>
+                    <input type="text" formControlName="uLink" class="form-control"
+                      placeholder="University Website" aria-label="UniversityWebsite">
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">College</span>
+                    <input type="text" formControlName="college" class="form-control" placeholder="College"
+                      aria-label="College">
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">College Website</span>
+                    <input type="text" formControlName="cLink" class="form-control" placeholder="College WebSite"
+                      aria-label="CollegeWebsite">
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">Education Type</span>
+                    <select formControlName="educationType" class="form-control" data-live-search="true"
+                      placeholder="Education Type">
+                      <option value="-1">{{selectText}}</option>
+                      <option *ngFor="let opt of educationTypes" value={{opt.name}}> {{opt.name}} </option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">Subject</span>
+                    <input type="text" formControlName="subject" class="form-control" placeholder="Subject"
+                      aria-label="Subject">
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">Start Month</span>
+                    <select formControlName="startMonth" class="form-control" data-live-search="true"
+                      placeholder="Start Month">
+                      <option value="-1">{{selectText}}</option>
+                      <option *ngFor="let opt of monthList" value={{opt.name}}> {{opt.name}} </option>
+                    </select>
+                    <span class="input-group-text">Year</span>
+                    <input type="text" formControlName="startYear" class="form-control" placeholder="Start Year"
+                      aria-label="StartYear">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">End Month</span>
+                    <select formControlName="endMonth" class="form-control" data-live-search="true"
+                      placeholder="Start Month">
+                      <option value="-1">{{selectText}}</option>
+                      <option *ngFor="let opt of monthList" value={{opt.name}}> {{opt.name}} </option>
+                    </select>
+                    <span class="input-group-text">Year</span>
+                    <input type="text" formControlName="endYear" class="form-control" placeholder="End Year"
+                      aria-label="End Year">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Percentage </span>
+                    <input type="text" formControlName="percentage" class="form-control" placeholder="Percentage"
+                      aria-label="Pergentage" aria-describedby="basic-addon1">
+                    <span class="input-group-text" id="basic-addon1">%</span>
+                  </div>
+                </div>
+              </form><!-- End General Form Elements -->
+            </div>
+            <div class="card-footer ">
+              <div class="d-flex justify-content-between float-end">
+                <button type="submit" class="btn btn-primary" (click)="submitAcadamics();">Submit</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+              </div>
+            </div>
+          </div>
+        </div><!-- End Recent Sales -->
+
       </div>
     </div>
   </div>
 </section>
+<!-- End Section Box -->
+
+<!-- Modal -->
+<div class="modal right fade" id="verticalycentered" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Acadamic</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- General Form Elements -->
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modal -->

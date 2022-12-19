@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title = 'admin-panel';
+
+  constructor() { }
+
+  public togglingSiderMenuHandler(event: any): void {
+    console.log(event);
+  }
+
+
 }

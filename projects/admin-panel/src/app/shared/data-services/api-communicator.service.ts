@@ -27,15 +27,24 @@ export class ApiCommunicatorService {
   };
 
 
-  Get(params?: any) {
-    return this.http.get(`${this.urlStartPoint}/${params}`, this.httpOptions).pipe(map((response: any) => { return response }));
+  Get(endPoint: any) {
+    let uri = this.urlStartPoint + '/' + endPoint;
+    return this.http.get(`${uri}`, this.httpOptions).pipe(map((response: any) => { return response }));
     // return this.http.get(`${uri}/${params}`, this.httpOptions).map((response: T) => {
     //   return response;
     // }).catch(this.handleError);
   }
 
-  Post(params?: any, isReturn: boolean = false) {
-    return this.http.post(this.urlStartPoint, params, this.httpOptions).pipe(map((response: any) => { return response }));
+  Read(endPoint: any, params?: any) {
+    let uri = this.urlStartPoint;
+    return this.http.get(`${uri}/${endPoint}/${params}`).pipe(map((response: any) => { return response }));
+  }
+
+
+  Post(endPoint: any, params?: any, isReturn: boolean = false) {
+    let uri = this.urlStartPoint + endPoint;
+    console.log(uri);
+    return this.http.post(uri, params, this.httpOptions).pipe(map((response: any) => { return response }));
     // return this.http.post(uri, params, this.httpOptions).map((response: T) => {
     //   return response;
     // }).catch(this.handleError);

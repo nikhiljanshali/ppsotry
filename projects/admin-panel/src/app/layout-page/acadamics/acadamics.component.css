@@ -1,0 +1,25 @@
+.flex2 {
+  display         : flex;
+  justify-content : space-around;
+  background-color: green;
+}
+
+.flex3 {
+  display         : flex;
+  justify-content : space-between;
+  background-color: green;
+}
+
+.flex-items {
+  background-color: #f4f4f4;
+  width           : 100px;
+  height          : 50px;
+  margin          : 10px;
+  text-align      : center;
+  font-size       : 40px;
+}
+
+
+.card-footer .d-flex .btn {
+  margin-right: 16px;
+}
