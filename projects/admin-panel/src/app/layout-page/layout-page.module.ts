@@ -9,7 +9,6 @@ import { AcadamicsComponent } from './acadamics/acadamics.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -25,7 +24,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     RxReactiveFormsModule,
     BsDatepickerModule.forRoot(),
-    ToastrModule.forRoot(), // ToastrModule added
     LayoutPageRoutingModule,
   ],
 })
