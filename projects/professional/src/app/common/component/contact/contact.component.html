@@ -7,32 +7,57 @@
         referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <div class="col-md-6">
-      <div class="row cont-row no-margin">
-        <div class="col-sm-6">
-          <input placeholder="Enter Full Name" type="text" class="form-control form-control-sm">
+      <form [formGroup]="contactMe" (submit)="onSubmit($event)">
+        <div class="row cont-row no-margin">
+          <div class="col-sm-6">
+            <input name="fullName" placeholder="Enter Full Name" type="text" class="form-control form-control-sm"
+              formControlName="fullName" [ngClass]="{ 'is-invalid': submitted && f['fullName'].errors }" />
+            <div *ngIf="submitted && f['fullName'].errors" class="invalid-feedback">
+              <div *ngIf="f['fullName'].errors['required']">
+                First Name is required
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <input name="email" placeholder="Enter Email Address" type="text" class="form-control form-control-sm"
+              formControlName="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
+            <!-- <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+              <div *ngIf="f['email'].errors['required']">
+                Email is invalid
+              </div>
+            </div> -->
+            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+              <div *ngIf="f['email'].errors['required']">Email is required</div>
+              <div *ngIf="f['email'].errors['email']">
+                Email must be a valid email address
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-sm-6">
-          <input placeholder="Enter Email Address" type="text" class="form-control form-control-sm">
+        <div class="row cont-row no-margin">
+          <div class="col-sm-6">
+            <input name="mobile" placeholder="Enter Mobile Number" type="text" class="form-control form-control-sm"
+              formControlName="mobile" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
+            <div *ngIf="submitted && f['mobile'].errors" class="invalid-feedback">
+              <div *ngIf="f['mobile'].errors['required']">mobile is required</div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="row cont-row no-margin">
-        <div class="col-sm-6">
-          <input placeholder="Enter Mobile Number" type="text" class="form-control form-control-sm">
+        <div class="row cont-row no-margin">
+          <div class="col-sm-12">
+            <textarea placeholder="Enter your Message" class="form-control form-control-sm" rows="10"
+              formControlName="message" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"></textarea>
+            <div *ngIf="submitted && f['message'].errors" class="invalid-feedback">
+              <div *ngIf="f['message'].errors['required']">Message is required</div>
+            </div>
+          </div>
         </div>
-
-      </div>
-      <div class="row cont-row no-margin">
-        <div class="col-sm-12">
-          <textarea placeholder="Enter your Message" class="form-control form-control-sm" rows="10"></textarea>
+        <div class="row cont-row no-margin">
+          <div class="col-sm-6">
+            <button type="submit" class="btn btn-sm btn-success">Send Message</button>
+          </div>
         </div>
-
-      </div>
-      <div class="row cont-row no-margin">
-        <div class="col-sm-6">
-          <button class="btn btn-sm btn-success">Send Message</button>
-        </div>
-
-      </div>
+      </form>
     </div>
   </div>
 

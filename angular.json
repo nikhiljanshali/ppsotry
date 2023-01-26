@@ -27,9 +27,7 @@
               "projects/professional/src/favicon.ico",
               "projects/professional/src/assets"
             ],
-            "styles": [
-              "projects/professional/src/styles.scss"
-            ],
+            "styles": ["projects/professional/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -67,6 +65,10 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "latest-angular:build",
+            "port": 4200
+          },
           "configurations": {
             "production": {
               "browserTarget": "professional:build:production"
@@ -95,9 +97,7 @@
               "projects/professional/src/favicon.ico",
               "projects/professional/src/assets"
             ],
-            "styles": [
-              "projects/professional/src/styles.scss"
-            ],
+            "styles": ["projects/professional/src/styles.scss"],
             "scripts": []
           }
         }
@@ -127,9 +127,7 @@
               "projects/personal/src/favicon.ico",
               "projects/personal/src/assets"
             ],
-            "styles": [
-              "projects/personal/src/styles.scss"
-            ],
+            "styles": ["projects/personal/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -167,6 +165,10 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "latest-angular:build",
+            "port": 4300
+          },
           "configurations": {
             "production": {
               "browserTarget": "personal:build:production"
@@ -195,9 +197,7 @@
               "projects/personal/src/favicon.ico",
               "projects/personal/src/assets"
             ],
-            "styles": [
-              "projects/personal/src/styles.scss"
-            ],
+            "styles": ["projects/personal/src/styles.scss"],
             "scripts": []
           }
         }
@@ -267,6 +267,10 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "latest-angular:build",
+            "port": 4400
+          },
           "configurations": {
             "production": {
               "browserTarget": "admin-panel:build:production"
@@ -294,9 +298,7 @@
               "projects/admin-panel/src/favicon.ico",
               "projects/admin-panel/src/assets"
             ],
-            "styles": [
-              "projects/admin-panel/src/styles.css"
-            ],
+            "styles": ["projects/admin-panel/src/styles.css"],
             "scripts": []
           }
         }

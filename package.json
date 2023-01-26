@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "pre": "ng serve personal",
-    "pro": "ng serve professional",
-    "admin": "ng serve admin-panel",
+    "pre": "ng serve personal --open",
+    "pro": "ng serve professional --open",
+    "admin": "ng serve admin-panel --open",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
